@@ -13,4 +13,5 @@ Now that you’ve created a Salesforce DX project, what’s next? Here are some 
   1. After deploying the changes --> Go to 'Bowling' Lightning Tab.
 
 ## X-tra
-  1. 
+  1. More details ping me @ https://www.linkedin.com/in/manu-prasad-a-43a0b4193/
+  2. 
