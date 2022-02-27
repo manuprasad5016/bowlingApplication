@@ -1,0 +1,86 @@
+<!-- sldsValidatorIgnore -->
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingHomeScreen
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component is the Home page of bowling application. It's called from the Bowling lightning tab
+*****************************************************************************************************************************
+@ Change history:  18.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+<template>
+    <div class="enclosingStyle">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <img src="https://i.pinimg.com/736x/b5/23/1b/b5231b91cf290a48d3712c518f92d448.jpg" class="imageStyle">
+            </div>
+            <div class="slds-col">
+                <img src="https://i.pinimg.com/originals/e9/68/3e/e9683e254221fbfd52cffc8eb26c7d07.jpg"
+                    class="imageStyle">
+            </div>
+        </div>
+        <br />
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <div class="slds-size_3-of-4">
+                    <div class="slds-box slds-box_x-small slds-text-align_center slds-var-m-around_x-small">
+                        <lightning-carousel disable-auto-scroll>
+                            <lightning-carousel-image
+                                src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-01.jpg"
+                                header="View Question" description="Salesforce Developer Position"
+                                alternative-text="First card accessible description." onclick={handleNavigateQuestion}>
+                            </lightning-carousel-image>
+                        </lightning-carousel>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div class="slds-size_3-of-4">
+                    <div class="slds-box slds-box_x-small slds-text-align_center slds-var-m-around_x-small">
+                        <lightning-carousel disable-auto-scroll>
+                            <lightning-carousel-image
+                                src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-01.jpg"
+                                header="Single Player Game" description="Click here to start a new Game"
+                                alternative-text="First card accessible description." onclick={newGameRegister}>
+                            </lightning-carousel-image>
+                        </lightning-carousel>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="slds-col">
+                <div class="slds-size_3-of-4">
+                    <div class="slds-box slds-box_x-small slds-text-align_center slds-var-m-around_x-small">
+                        <lightning-carousel disable-auto-scroll>
+                            <lightning-carousel-image
+                                src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-01.jpg"
+                                header="Multi-Player Game" description="Click here to start a new Game"
+                                alternative-text="First card accessible description." href="https://www.example.com">
+                            </lightning-carousel-image>
+                        </lightning-carousel>
+                    </div>
+                </div>
+            </div> -->
+            <div class="slds-col">
+                <div class="slds-size_3-of-4">
+                    <div class="slds-box slds-box_x-small slds-text-align_center slds-var-m-around_x-small">
+                        <lightning-carousel disable-auto-scroll>
+                            <lightning-carousel-image
+                                src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-01.jpg"
+                                header="Leaderboard" description="View Leaderboard"
+                                alternative-text="First card accessible description."
+                                onclick={handleNavigateLeaderboard}>
+                            </lightning-carousel-image>
+                        </lightning-carousel>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Box -->
+    <template if:true={singlePlayerRegister}>
+        <c-bowling-create-new-game onclosemodal={closeRegistration}></c-bowling-create-new-game>
+    </template>
+
+</template>

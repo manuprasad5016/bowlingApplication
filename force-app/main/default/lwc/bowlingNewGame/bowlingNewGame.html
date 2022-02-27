@@ -1,0 +1,94 @@
+<!-- sldsValidatorIgnore -->
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingNewGame
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component used for playing the bowling game by inputing pins down in each frame. Added in Game detail page from Appbuilder
+*****************************************************************************************************************************
+@ Change history:  20.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+<template>
+    <div class="enclosingStyle">
+        <lightning-card title="Bowling" icon-name="standard:queue">
+            <lightning-button label="Show/Hide Rules" onclick={hideRules} slot="actions"> </lightning-button>
+            <lightning-button label="New Game" onclick={newGame} slot="actions"> </lightning-button>
+            <lightning-button label="End Game" onclick={endGame} slot="actions"> </lightning-button>
+
+            <div class="slds-grid slds-gutters">
+                <div if:true={showRules} class="slds-col slds-size_1-of-3">
+                    <div class="ruleScreen">
+                        <h1 class="headingStyle">How to Play </h1>
+                        <div class="paragraphs">
+                            <p>1. Bowling is played by throwing a ball down a narrow alley toward ten wooden pins. The
+                                objective is to knock down as many pins as possible per throw.</p>
+                            <br />
+                            <p>2. The game is played in ten frames. At the beginning of each frame, all ten pins are set
+                                up.
+                                The player then gets two tries to knock them all down.</p>
+                            <br />
+                            <p>3. If the player knocks all the pins down on the first try, it is called a "strike,“ and
+                                the
+                                frame ends.</p>
+                            <br />
+                            <p>4. If the player fails to knock down all the pins with his first ball, but succeeds with
+                                the
+                                second ball, it is called a "spare“.</p>
+                            <br />
+                            <p>5. After the second ball of the frame, the frame ends even if there are still pins
+                                standing.
+                            </p>
+                            <br />
+                            <p>6. A strike frame is scored by adding ten, plus the number of pins knocked down by the
+                                next
+                                two balls, to the score of the previous frame.</p>
+                            <br />
+                            <p>7. A spare frame is scored by adding ten, plus the number of pins knocked down by the
+                                next
+                                ball, to the score of the previous frame.</p>
+                            <br />
+                            <p>8. Otherwise, a frame is scored by adding the number of pins knocked down by the two
+                                balls in
+                                the frame to the score of the previous frame.</p>
+                            <br />
+                            <p>9. If a strike is thrown in the tenth frame, then the player may throw two more balls to
+                                complete the score of the strike.</p>
+                            <br />
+                            <p>10. Likewise, if a spare is thrown in the tenth frame, the player may throw one more ball
+                                to
+                                complete the score of the spare.</p>
+                            <br />
+                            <p>11. Thus the tenth frame may have three balls instead of two.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class={secondColumn}>
+                    <div class="imageMargin">
+                        <div class="imageStyle">
+                            <div class="imageInner"><img src={imageUrl} class="imageDom">
+                            </div>
+                        </div><br />
+                        <div class="inputEnclosure">
+                            <lightning-input variant="label-inline" field-level-help="Press Enter or Click Icon to go"
+                                disabled={stopGame} type="number" min="0" max="10" label="Enter Pins Down :"
+                                data-field="pinsDown" onkeypress={updateValueHandler}></lightning-input>
+                            &nbsp;&nbsp;<lightning-icon onclick={submitAction} icon-name="utility:send"
+                                alternative-text="Success!" variant="success" title="Enter" size="small">
+                            </lightning-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <template if:true={showSpinner}>
+                <lightning-spinner size="medium"> </lightning-spinner>
+            </template>
+        </lightning-card>
+    </div>
+
+    <!-- Modal Box -->
+    <template if:true={singlePlayerRegister}>
+        <c-bowling-create-new-game onclosemodal={closeRegistration}></c-bowling-create-new-game>
+    </template>
+
+</template>

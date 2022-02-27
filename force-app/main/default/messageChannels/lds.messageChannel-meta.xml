@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is a sample Lightning Message Channel for LDS.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>Variable 1</description>
+        <fieldName>variable1</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>Variable 2</description>
+        <fieldName>variable2</fieldName>
+    </lightningMessageFields>
+    <masterLabel>LDSChannel</masterLabel>
+</LightningMessageChannel>

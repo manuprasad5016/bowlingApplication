@@ -1,0 +1,356 @@
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingRulesScreen
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component displays the question provided. Copied the DOM from provided link and added here
+*****************************************************************************************************************************
+@ Change history:  18.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+
+<template>
+    <div class="notion-app-inner notion-light-theme" style="color: rgb(55, 53, 47); fill: currentcolor; line-height: 1.5; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; -webkit-font-smoothing: auto;">
+        <div class="notion-cursor-listener" style="width: 100vw; height: 100%; position: relative; display: flex; flex: 1 1 0%; background: white; cursor: text;margin-left: -12px;margin-top: -12px;">
+           <div style="display: flex; flex-direction: column; width: 100%; overflow: hidden;"> 
+              <div class="notion-frame" style="flex-grow: 0; flex-shrink: 1; display: flex; flex-direction: column; background: white; z-index: 1; height: calc(100vh - 45px); max-height: 100%; position: relative; width: 1440;">
+                 <div class="notion-scroller vertical horizontal" style="display: flex; flex-direction: column; z-index: 1; flex-grow: 1; position: relative; align-items: center; overflow: auto; margin-right: 0px; margin-bottom: 0px;">
+                    <div class="whenContentEditable" data-content-editable-root="true" style="caret-color: rgb(55, 53, 47); width: 100%; display: flex; flex-direction: column; position: relative; align-items: center; flex-grow: 1; --whenContentEditable--WebkitUserModify:read-write-plaintext-only;" data-content-editable-selecting="true">
+                       <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" style="user-select: none; --pseudoSelection--background:transparent; width: 100%; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; flex-grow: 0; z-index: 2;">
+                          <div style="position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; height: 30vh; cursor: default;">
+                             <div style="width: 100%; cursor: inherit;">
+                                <div style="width: 100%; height: 100%;"><img src="https://images.unsplash.com/photo-1538511059256-46e76f13f071?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjYzOTIxfQ&amp;w=6000" style="display: block; object-fit: cover; border-radius: 0px; width: 100%; height: 30vh; opacity: 1; object-position: center 37.78%;"></div>
+                             </div>
+                             <div style="background: rgba(0, 0, 0, 0.4); border-radius: 3px; color: white; font-size: 12px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; width: 180px; left: calc(50% - 90px); padding: 0.3em 1.5em; pointer-events: none; position: absolute; top: calc(50% - 10px); text-align: center; opacity: 0;">Drag image to reposition</div>
+                          </div>
+                       </div>
+                       <!-- <div style = "padding-left: 80%; padding-top: 1%;"><lightning-button label="New Game" onclick={newGameHandler}></lightning-button></div> -->
+                       <div style="width: 100%; display: flex; justify-content: center; z-index: 3; flex-shrink: 0;">
+                          <div style="max-width: 100%; min-width: 0px; width: 900px;">
+                             <div style="width: 100%; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; flex-grow: 0;">
+                                <div style="max-width: 100%; padding-left: calc(96px + env(safe-area-inset-left)); width: 100%;">
+                                   <!-- <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" style="user-select: none; --pseudoSelection--background:transparent; pointer-events: none;">
+                                      <div class="notion-record-icon notranslate notion-focusable" role="button" aria-disabled="true" tabindex="-1" style="user-select: none; transition: background 20ms ease-in 0s; display: flex; align-items: center; justify-content: center; height: 78px; width: 78px; border-radius: 3px; flex-shrink: 0; position: relative; z-index: 1; margin-left: 3px; margin-bottom: 0px; align-self: flex-start; pointer-events: auto; margin-top: -90px;">
+                                         <div style="display: flex; align-items: center; justify-content: center; height: 78px; width: 78px;">
+                                            <div style="height: 78px; width: 78px; font-size: 78px; line-height: 1.1; margin-left: 0px; color: black;"><span role="image" aria-label="🎳" style="font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol, Android Emoji, EmojiSymbols; line-height: 1em; white-space: nowrap;">🎳</span></div>
+                                         </div>
+                                      </div>
+                                      <div class="notion-page-controls" style="display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 8px; margin-bottom: 4px; margin-left: -1px; color: rgba(55, 53, 47, 0.4); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; height: 24px; pointer-events: auto;">
+                                          
+                                      </div>
+                                   </div> --><br/>
+                                   <div style="padding-right: calc(96px + env(safe-area-inset-right));">
+                                      <div data-block-id="52274ae1-db5b-4459-b6a0-8b46378b6227" class="notion-selectable notion-page-block" style="color: rgb(55, 53, 47); font-weight: 700; line-height: 1.2; font-size: 40px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; cursor: text; display: flex; align-items: center;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">Bowling Coding Challenge – Salesforce Developer</div>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                             <div style="width: 100%; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; flex-grow: 0;">
+                                <div contenteditable="false" data-content-editable-void="true" style="padding-left: calc(96px + env(safe-area-inset-left)); padding-right: calc(96px + env(safe-area-inset-right)); max-width: 100%; width: 100%;"></div>
+                             </div>
+                          </div>
+                       </div>
+                       <div style="display: flex; width: 100%; justify-content: center; padding-top: 5px;">
+                          <div style="max-width: 100%; min-width: 0px; width: 900px; padding-right: 0px;">
+                             <div class="notion-page-content" style="flex-shrink: 0; flex-grow: 1; max-width: 100%; display: flex; align-items: flex-start; flex-direction: column; font-size: 16px; line-height: 1.5; width: 100%; z-index: 4; padding-bottom: 30vh; padding-left: calc(96px + env(safe-area-inset-left)); padding-right: calc(96px + env(safe-area-inset-right));">
+                                <div data-block-id="cb717f6d-ab25-4753-890b-ea2ec6b40bec" class="notion-selectable notion-header-block" style="width: 100%; max-width: 1718px; margin-top: 2em; margin-bottom: 4px;">
+                                   <div style="display: flex; width: 100%; color: inherit; fill: inherit;">
+                                      <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; font-weight: 600; font-size: 1.875em; line-height: 1.3;">Write an App that takes score of a bowling game</div>
+                                   </div>
+                                </div>
+                                <div data-block-id="92fb88a0-c714-46f3-8a36-d58f734e017e" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="color: inherit; fill: inherit;">
+                                      <div style="display: flex;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">Thanks for your interest in joining our team! </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="6bb54331-f66d-4e4d-ba31-ab88714ec51e" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="color: inherit; fill: inherit;">
+                                      <div style="display: flex;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">We are very practical at flair and this extends to the way that we work with you to find out if this team is a great fit for you. We want you to come away with a great understanding of the work that we actually do day-to-day and what it is like to work with us.</div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="86be70e0-d330-475c-8da2-41ce654826e4" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="color: inherit; fill: inherit;">
+                                      <div style="display: flex;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">So instead of coding at a whiteboard with someone watching over your shoulder under high pressure, which is not a thing we often do, we instead discuss code that you have written previously when we meet.</div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="227f900a-9e50-461e-afa7-90f1f742f2b9" class="notion-selectable notion-sub_header-block" style="width: 100%; max-width: 1718px; margin-top: 1.4em; margin-bottom: 1px;">
+                                   <div style="display: flex; width: 100%; color: inherit; fill: inherit;">
+                                      <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; font-weight: 600; font-size: 1.5em; line-height: 1.3;">Main Requirements</div>
+                                   </div>
+                                </div>
+                                <div data-block-id="94d244b0-8e7b-4f5c-9e19-e662d06d1ea7" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="color: inherit; fill: inherit;">
+                                      <div style="display: flex;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">The App should be written using <a href="https://developer.salesforce.com/docs/component-library/overview/components" style="cursor:pointer;color:inherit;word-wrap:break-word;text-decoration:inherit" class="notion-link-token notion-enable-hover" target="_blank" rel="noopener noreferrer" data-token-index="1"><span style="border-bottom:0.05em solid;border-color:rgba(55,53,47,0.4);opacity:0.7" class="link-annotation-94d244b0-8e7b-4f5c-9e19-e662d06d1ea7--906101794">LWC</span></a> (not Aura!) and <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_ref_guide.htm" style="cursor:pointer;color:inherit;word-wrap:break-word;text-decoration:inherit" class="notion-link-token notion-enable-hover" target="_blank" rel="noopener noreferrer" data-token-index="3"><span style="border-bottom:0.05em solid;border-color:rgba(55,53,47,0.4);opacity:0.7" class="link-annotation-94d244b0-8e7b-4f5c-9e19-e662d06d1ea7-544903512">Salesforce Apex</span></a>. In addition, it should provide the following:</div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="fa160a10-1098-4abc-b38d-b827ff83f32a" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">A way to start a new bowling game;</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="945201c2-aea2-4d70-903a-45143b5ddb14" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">A way to input the number of pins knocked down by each ball;</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="064cc80c-ec7d-41ef-b13b-903f1aca92ff" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">A way to output the current game score (score for each frame and total score).</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="821f7ad7-6cd0-4dde-82e9-dd7d08151084" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;"><span data-token-index="0" class="notion-enable-hover">(Bonus!) Show history of previous games</span></div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="0a2408dc-fc25-4be2-bdcd-fedb6fe25435" class="notion-selectable notion-sub_header-block" style="width: 100%; max-width: 1718px; margin-top: 1.4em; margin-bottom: 1px;">
+                                   <div style="display: flex; width: 100%; color: inherit; fill: inherit;">
+                                      <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; font-weight: 600; font-size: 1.5em; line-height: 1.3;">Technical Requirements</div>
+                                   </div>
+                                </div>
+                                <div data-block-id="63bb5519-b3e9-4f17-a649-b53503d10360" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">We expect to receive a link to git repository with <a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_create_new.htm" style="cursor:pointer;color:inherit;word-wrap:break-word;text-decoration:inherit" class="notion-link-token notion-enable-hover" target="_blank" rel="noopener noreferrer" data-token-index="1"><span style="border-bottom:0.05em solid;border-color:rgba(55,53,47,0.4);opacity:0.7" class="link-annotation-63bb5519-b3e9-4f17-a649-b53503d10360-1241491953">sfdx-project</span></a> which we can push to a scratch org</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="4a0a8aeb-31a9-4ea1-ba72-80c52afaaac2" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">It would be nice to get credentials to a sandbox or scratch org to test your solution</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="eafc3ae7-f747-43e5-b5bc-0db5c50193e6" class="notion-selectable notion-sub_header-block" style="width: 100%; max-width: 1718px; margin-top: 1.4em; margin-bottom: 1px;">
+                                   <div style="display: flex; width: 100%; color: inherit; fill: inherit;">
+                                      <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; font-weight: 600; font-size: 1.5em; line-height: 1.3;">Logic details</div>
+                                   </div>
+                                </div>
+                                <div data-block-id="c125612f-e3b0-4ae0-8947-32c03702e35e" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">Bowling is played by throwing a ball down a narrow alley toward ten wooden pins. The objective is to knock down as many pins as possible per throw.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="dfce2d57-2d40-4041-acaf-32dd4d1b8b28" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">The game is played in ten frames. At the beginning of each frame, all ten pins are set up. The player then gets two tries to knock them all down.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="8cdbd98a-ef82-4150-af4e-52da4737491e" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">If the player knocks all the pins down on the first try, it is called a "strike,“ and the frame ends. </div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="28e111dd-fcbd-46f9-8b7f-19337d7ecbd0" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">If the player fails to knock down all the pins with his first ball, but succeeds with the second ball, it is called a "spare“.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="47052e9b-30c9-4178-b82d-883ad1ad94f4" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">After the second ball of the frame, the frame ends even if there are still pins standing.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="e8a638a6-9ee5-4306-af80-18d67c0733ca" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">A strike frame is scored by adding ten, plus the number of pins knocked down by the next two balls, to the score of the previous frame.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="6414621d-ee44-4549-8bc2-b0242eec324f" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">A spare frame is scored by adding ten, plus the number of pins knocked down by the next ball, to the score of the previous frame.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="cfcc10c3-9e0d-41d0-97d1-4ae5e5be9b0e" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">Otherwise, a frame is scored by adding the number of pins knocked down by the two balls in the frame to the score of the previous frame.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="420717bf-b53c-49ef-ab88-49ab1b844882" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">If a strike is thrown in the tenth frame, then the player may throw two more balls to complete the score of the strike.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="52cf5652-c795-448b-9194-baf1ec35a7d4" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">Likewise, if a spare is thrown in the tenth frame, the player may throw one more ball to complete the score of the spare.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="05428d9c-6417-4901-a33f-702e02852385" class="notion-selectable notion-bulleted_list-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill: inherit;">
+                                      <div contenteditable="false" class="pseudoSelection" data-content-editable-void="true" data-text-edit-side="start" style="user-select: none; --pseudoSelection--background:transparent; margin-right: 2px; width: 24px; display: flex; align-items: center; justify-content: center; flex-grow: 0; flex-shrink: 0; min-height: calc(1.5em + 3px + 3px);">
+                                         <div class="pseudoBefore" style="font-size: 1.5em; line-height: 1; margin-bottom: 0px; --pseudoBefore--fontFamily:Arial; --pseudoBefore--content:•;"></div>
+                                      </div>
+                                      <div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;">
+                                         <div style="display: flex;">
+                                            <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; text-align: left;">Thus the tenth frame may have three balls instead of two.</div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="b6b739dd-22b8-4d18-99bf-99686f34a75c" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 1px;">
+                                   <div style="color: inherit; fill: inherit;">
+                                      <div style="display: flex;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">For background information, please see <a href="http://en.wikipedia.org/wiki/Ten-pin_bowling" style="cursor:pointer;color:inherit;word-wrap:break-word;text-decoration:inherit" class="notion-link-token notion-enable-hover" target="_blank" rel="noopener noreferrer" data-token-index="1"><span style="border-bottom:0.05em solid;border-color:rgba(55,53,47,0.4);opacity:0.7" class="link-annotation-b6b739dd-22b8-4d18-99bf-99686f34a75c-1134427676">http://en.wikipedia.org/wiki/Ten-pin_bowling</span></a></div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div data-block-id="babec45c-af15-4d26-ba2a-58b70d7df3fd" class="notion-selectable notion-sub_header-block" style="width: 100%; max-width: 1718px; margin-top: 1.4em; margin-bottom: 1px;">
+                                   <div style="display: flex; width: 100%; color: inherit; fill: inherit;">
+                                      <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol; font-weight: 600; font-size: 1.5em; line-height: 1.3;">Going Above and Beyond the Requirements</div>
+                                   </div>
+                                </div>
+                                <div data-block-id="83a7ee9d-7e0f-4c39-aa09-af5b5b92c932" class="notion-selectable notion-text-block" style="width: 100%; max-width: 1718px; margin-top: 1px; margin-bottom: 0px;">
+                                   <div style="color: inherit; fill: inherit;">
+                                      <div style="display: flex;">
+                                         <div spellcheck="true" data-content-editable-leaf="true" contenteditable="false" style="max-width: 100%; width: 100%; white-space: pre-wrap; word-break: break-word; caret-color: rgb(55, 53, 47); padding: 3px 2px;">Given the time expectations of this exercise, we don't expect anyone to submit anything super fancy, but if you find yourself with extra time, any extra credit item(s) that showcase your unique strengths would be awesome! <span role="image" aria-label="🙌" style="font-family:Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Noto Color Emoji,Segoe UI Symbol,Android Emoji,EmojiSymbols;line-height:1em;white-space:nowrap;font-size:1em">🙌</span></div>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                          <div contenteditable="false" data-content-editable-void="true" style="width: 0px;">
+                             <div style="display: none; flex-shrink: 0; pointer-events: none; width: 0px; position: absolute; right: 192px; opacity: 0;">
+                                <div style="display: flex; flex-direction: column; padding: 5px 16px; width: 340px; flex-shrink: 0; height: 100%; position: relative; pointer-events: none; z-index: 1;">
+                                   <div style="position: absolute; pointer-events: none; width: 100%; height: 100%; top: -5px; background: linear-gradient(white 0px, rgba(255, 255, 255, 0) 15px);"></div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="notion-presence-container" style="position: absolute; top: 0px; left: 0px; z-index: 1;">
+                       <div></div>
+                    </div>
+                 </div>
+                 <div style="position: absolute; top: 0px; left: 0px;">
+                    <div></div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="notion-overlay-container notion-default-overlay-container" style="position: fixed; inset: 0px; z-index: 999; pointer-events: none; overflow: hidden;">
+           <div style="position: relative; z-index: 0;"></div>
+        </div>
+        <div class="notion-overlay-container" style="position: fixed; inset: 0px; z-index: 1001; pointer-events: none; overflow: hidden;">
+           <div style="position: relative; z-index: 0;"></div>
+        </div>
+     </div>
+</template>

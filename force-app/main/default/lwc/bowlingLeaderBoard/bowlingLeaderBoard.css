@@ -1,0 +1,13 @@
+.enclosingStyle{
+    background-color: lightslategray;
+    height: 82vh;
+}
+
+.tableHeight{
+    min-height: 74vh;
+}
+
+.imageHeight{
+    width: 100%;
+    height: 81vh;
+}

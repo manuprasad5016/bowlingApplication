@@ -1,0 +1,25 @@
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingFramesDetails
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component is used for displaying the individual frame scores
+*****************************************************************************************************************************
+@ Change history:  18.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+<template>
+    <template if:true={frames.data}>
+        <div class="slds-grid slds-wrap">
+            <template for:each={frames.data} for:item="frame">
+                <div class="slds-size_1-of-4" key={frame.IdVal}>
+                    <c-horizontal-cards key={frame.IdVal} title={frame.Name} value1={frame.Attempt1}
+                        value2={frame.Attempt2}></c-horizontal-cards>
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:true={frames.error}>
+        <c-error-panel errors={frames.error}></c-error-panel>
+    </template>
+</template>

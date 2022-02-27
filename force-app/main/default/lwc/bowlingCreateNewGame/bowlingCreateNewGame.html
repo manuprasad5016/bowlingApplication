@@ -1,0 +1,42 @@
+<!-- sldsValidatorIgnore -->
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingHomeScreen
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component is the LWC used for creating a new Game
+*****************************************************************************************************************************
+@ Change history:  27.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Register</h2>
+            </header>
+            <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                <lightning-record-edit-form object-api-name="Game__c" onsuccess={newGameStart}>
+                    <lightning-input-field onchange={getHistory} field-name="Player__c"> </lightning-input-field>
+                    <br />
+                    <div if:true={inprogressList}>
+                        <lightning-card title="In Progress Games" icon-name="standard:queue">
+                            <lightning-datatable sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting}
+                                hide-checkbox-column show-row-number-column data={inprogressList} columns={gamesColumn}
+                                key-field="Id">
+                            </lightning-datatable>
+                        </lightning-card>
+                    </div>
+                    <br /><br />
+                    <div class="marginClass">
+                        <br />
+                        <lightning-button type="submit" label="Start New Game"> </lightning-button> &nbsp; &nbsp;
+                        <lightning-button label="Cancel" onclick={closeRegistration}> </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

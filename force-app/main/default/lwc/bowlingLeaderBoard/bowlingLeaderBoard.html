@@ -1,0 +1,33 @@
+<!-- sldsValidatorIgnore -->
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingLeaderBoard
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component is used for displaying the Game Leaderboard in lightning-datatable
+*****************************************************************************************************************************
+@ Change history:  20.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+<template>
+    <div class="enclosingStyle">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+                <lightning-card title={titleVar} icon-name="standard:opportunity">
+                    <div class="tableHeight">
+                        <template if:true={gamesDataList}>
+                            <lightning-datatable sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting}
+                                hide-checkbox-column show-row-number-column data={gamesDataList} columns={gamesColumn}
+                                key-field="Id">
+                            </lightning-datatable>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <img src="https://us.123rf.com/450wm/erwinwira/erwinwira1912/erwinwira191200007/136122114-illustration-of-businessman-standing-together-on-podium.jpg?ver=6"
+                    class="imageHeight">
+            </div>
+        </div>
+    </div>
+</template>

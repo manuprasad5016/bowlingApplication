@@ -1,0 +1,51 @@
+.enclosingStyle{
+    background-color: white;
+    height:82vh;
+}
+
+.ruleScreen{
+    height: 74vh;
+    overflow:scroll;
+    border:solid;
+}
+
+.headingStyle{
+    font-size: large; 
+    font-weight: bold; 
+    margin-left: 10px; 
+    padding-top: 5px;
+}
+
+.paragraphs{
+    padding-left:30px;
+}
+
+.imageMargin{
+    margin: 6px;
+}
+
+.imageStyle{
+    width: 100%;
+    cursor: inherit;
+}
+
+.imageInner{
+    width: 100%;
+    height: 100%;
+}
+
+.imageDom{
+    display: block; 
+    object-fit: cover; 
+    border-radius: 0px; 
+    width: 100%; 
+    height: 30vh; 
+    opacity: 1; 
+    object-position: center 37.78%;
+}
+
+.inputEnclosure{
+    width: 65%;
+    display:inline-flex;
+    align-items: baseline;
+}

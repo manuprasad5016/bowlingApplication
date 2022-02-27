@@ -1,0 +1,37 @@
+<!-- sldsValidatorIgnore -->
+<!--
+*****************************************************************************************************************************
+@ Class:          bowlingGameDetailsPage
+@ Version:        1.0
+@ Author:         Manu Prasad A (madeyilliam@salesforce.com) 
+@ Purpose:        This Component is used for displaying the Game record field in Game detail record page
+*****************************************************************************************************************************
+@ Change history:  18.02.2022 / Manu Prasad A / Created the LWC Component.  
+******************************************************************************************************************************  -->
+
+<template>
+    <lightning-card title="Game" icon-name="standard:approval">
+        <lightning-record-view-form object-api-name="Game__c" record-id={recordId}>
+            <div class="slds-grid slds-gutters" style="margin: 10px;">
+                <div class="slds-col">
+                    <lightning-output-field field-name="Player__c"> </lightning-output-field>
+                    <lightning-output-field field-name="Total_Score__c"> </lightning-output-field>
+                </div>
+                <div class="slds-col">
+                    <lightning-output-field field-name="Status__c"> </lightning-output-field>
+                </div>
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+
+    <lightning-card title={titleVar} icon-name="standard:coaching">
+        <div style="max-height: 21vh;overflow:scroll;">
+            <template if:true={gamesDataList}>
+                <lightning-datatable sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting}
+                    hide-checkbox-column show-row-number-column data={gamesDataList} columns={gamesColumn}
+                    key-field="Id">
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>
